@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ToDo Vue</title>
+  <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDoqtocj1gx2-TSWO1eYnWGF7EQg6Ygvbk",
+      authDomain: "gfl-test-1519049026803.firebaseapp.com",
+      databaseURL: "https://gfl-test-1519049026803.firebaseio.com",
+      projectId: "gfl-test-1519049026803",
+      storageBucket: "gfl-test-1519049026803.appspot.com",
+      messagingSenderId: "568008595633"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+  <!-- header -->
+  <header id="header" class="header"></header>
+  <!-- //header -->
+
+  <!-- main -->
+  <main id="main" class="main">
+    <!-- veil -->
+    <div 
+      class="veil" 
+      v-show="isVeil"
+      v-on:click="hideFields">
+    </div>
+    <!-- //veil -->
+
+    <!-- fields -->
+    <div
+      class="fields" 
+      v-show="isFields">
+        <input 
+          type="title"
+          id="title"
+          class="fields__title"
+          placeholder="Enter Title"
+          v-model="title"
+          ref="title"
+          v-on:keyup.enter="addTask">
+
+        <textarea
+          name="descr"
+          id="descr"
+          cols="30"
+          rows="10"
+          class="fields__descr"
+          placeholder="Enter Text"
+          v-model="descr"
+          v-on:keyup.enter="addTask">
+        </textarea>
+        
+        <button
+          class="fields__btn"
+          v-on:click="addTask">
+          <i class="material-icons">
+            send
+          </i>
+        </button>
+    </div>
+    <!-- //fields -->
+    
+    <div 
+      class="cards"
+      id="cards">
+      <card
+        v-for="(card, index) in taskList"
+        v-bind:card="card"
+        v-bind:index="index"
+        v-bind:key="card.key"
+        v-on:carddelete="removeCard">
+      </card>
+    </div>
+
+    <!-- button add task -->
+    <button 
+      class="btn__add-card"
+      v-on:click="showFields">
+        <i class="material-icons">
+          add
+        </i>
+    </button>
+    <!-- //button add task -->
+  </main>
+  <!-- //main -->
+  <script src="./main.js"></script>
+</body>
+</html>

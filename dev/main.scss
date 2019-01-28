@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: #546e7a;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  height: 5rem;
+  box-shadow: 0 5px 20px rgba(0,0,0,.2);
+}
+
+.main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.veil {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: #fff;
+  border-radius: 20px;
+  z-index: 15;
+}
+
+.fields__title,
+.fields__descr {
+  padding: 10px;
+  border: none;
+  background: #eeeeee;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  outline: none;
+  color: #546e7a;
+}
+
+.fields__title {
+  font-weight: bold;
+}
+
+.fields__descr {
+  resize: none;
+  padding: 10px 10px 40px;
+}
+
+.fields__btn {
+  align-self: flex-end;
+  right: 10px;
+  bottom: 30px;
+  border: none;
+  background: none;
+  padding: 5px;
+  width: 100%;
+  background: #eeeeee;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.material-icons {
+  color: #546e7a;
+}
+
+.btn__add-card {
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  position: fixed;
+  bottom: 100px;
+  right: 50px;
+  outline: none;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  width: 100%;
+  max-width: calc(25% - 20px);
+  box-shadow: 0 5px 20px rgba(0,0,0,.2);
+}
+
+.card__title {
+  margin: 0;
+  color: #37474f;
+  padding-right: 25px;
+}
+
+.card__date {
+  font-size: 12px;
+  margin-bottom: 1rem;
+}
+
+.card__remove {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.animcard-enter-active, .animcard-leave-active {
+  transition: opacity .5s;
+}
+.animcard-enter, .animcard-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+}
